@@ -34,4 +34,10 @@ public class Person : object
     {
         return Procreate(this, partner);
     }
+
+    // operator to "multiply"
+    public static Person operator *(Person p1, Person p2)
+    {
+        return Person.Procreate(p1, p2);
+    }
 }
