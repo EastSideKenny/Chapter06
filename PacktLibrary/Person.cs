@@ -79,4 +79,19 @@ public class Person : object
             }
         }
     }
+
+    public event EventHandler? Test;
+
+    public string CodeWord = "yeet";
+
+    public void Ya(string someWord)
+    {
+        if(someWord == "ya")
+        {
+            if(Test != null)
+            {
+                Test.Invoke(this, EventArgs.Empty);
+            }
+        }
+    }
 }

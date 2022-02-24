@@ -38,6 +38,17 @@ harry.Poke();
 harry.Poke();
 harry.Poke();
 
+static void Harry_Test(object? sender, EventArgs e)
+{
+    if (sender is null) return;
+    Person p = (Person)sender;
+    WriteLine($"{p.CodeWord}");
+}
+
+harry.Test += Harry_Test;
+harry.Ya("lol");
+harry.Ya("ya");
+
 // non-generic lookup collection
 
 System.Collections.Hashtable lookupObject = new();
@@ -56,3 +67,18 @@ WriteLine(format: "Key {0} has the value: {1}",
 WriteLine(format: "Key {0} has value: {1}",
     arg0: harry,
     arg1: lookupObject[harry]);
+
+
+
+// generic lookup collection
+Dictionary<int, string> lookupIntString = new();
+
+lookupIntString.Add(key: 1, value: "Alpha");
+lookupIntString.Add(key: 2, value: "Beta");
+lookupIntString.Add(key: 3, value: "Gamma");
+lookupIntString.Add(key: 4, value: "Delta");
+
+key = 3;
+WriteLine(format: "Kez {0} has a value of: {1}",
+    arg0: key,
+    arg1: lookupIntString[key]);
