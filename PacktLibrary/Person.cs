@@ -100,4 +100,10 @@ public class Person : object, IComparable<Person>
         if (Name is null) return 0;
         return Name.CompareTo(other?.Name);
     }
+
+    // overriden methods
+    public override string ToString()
+    {
+        return $"{Name} is a {base.ToString()}";
+    }
 }
