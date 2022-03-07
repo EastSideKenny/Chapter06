@@ -15,6 +15,18 @@ public class Person : object, IComparable<Person>
         WriteLine($"{Name} was born on a {DateOfBirth:dddd}.");
     }
 
+    public void TimeTravel(DateTime when)
+    {
+        if (when <= DateOfBirth)
+        {
+            throw new PersonException("If you travel back in time to a date earlier than your own birth, then the universe will explode!");
+        }
+        else
+        {
+            WriteLine($"Welcome to {when:yyyy}!");
+        }
+    }
+
     // static method to "multiply"
     public static Person Procreate(Person p1, Person p2)
     {
@@ -106,4 +118,6 @@ public class Person : object, IComparable<Person>
     {
         return $"{Name} is a {base.ToString()}";
     }
+
+   
 }
